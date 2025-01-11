@@ -8,7 +8,7 @@
 import GAMES_DATA from './games.js';
 
 // create a list of objects to store the data about the games using JSON.parse
-const GAMES_JSON = JSON.parse(GAMES_DATA)
+const GAMES_JSON = JSON.parse(GAMES_DATA);
 
 // remove all child elements from a parent element in the DOM
 function deleteChildElements(parent) {
@@ -26,30 +26,29 @@ function deleteChildElements(parent) {
 const gamesContainer = document.getElementById("games-container");
 
 // create a function that adds all data from the games array to the page
-function addGamesToPage(games) {
-
+function addGamesToPage(games) 
+{
     // loop over each item in the data
-
-
-        // create a new div element, which will become the game card
-
-
-        // add the class game-card to the list
-
-
-        // set the inner HTML using a template literal to display some info 
-        // about each game
-        // TIP: if your images are not displaying, make sure there is space
-        // between the end of the src attribute and the end of the tag ("/>")
-
-
-        // append the game to the games-container
-
+    for(let i = 0; i < games.length; i++)
+    {
+        //create a new div element, which will become the game card
+        let newDiv = document.createElement("div");
+        //add the class game-card to the list
+        newDiv.classList.add("game-card");
+        //set the inner HTML using a template literal to display some info
+        //about each game
+        //TIP: if your images are not displaying, make sure there is space
+        //between the end of the src attribute and the end of the tag ("/>")
+        newDiv.innerHTML = `<img src="${games[i].img}" alt="${games[i].name}" class="game-img" /> 
+        <h2> Name: ${games[i].name} </h2>
+        <p> Description: ${games[i].description} </p>`;  
+        //append the game to games-container
+        gamesContainer.appendChild(newDiv);
+    } 
 }
-
 // call the function we just defined using the correct variable
 // later, we'll call this function using a different list of games
-
+addGamesToPage(GAMES_JSON);
 
 /*************************************************************************************
  * Challenge 4: Create the summary statistics at the top of the page displaying the

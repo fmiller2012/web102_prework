@@ -20,8 +20,23 @@ body {
 }
 
 .stats-container {
-    display: flex;
+   display: flex;
 }
+
+.stats-container:hover {
+    cursor: pointer;
+    box-shadow: 0 0 30px lightblue;
+}
+
+/*
+    #top-games
+*/
+
+.stats-container[s] {
+    background-color: red;
+    display: flex;
+    align-items: center;   
+} 
 
 .stats-card {
     background-color: #a8b0bc;
